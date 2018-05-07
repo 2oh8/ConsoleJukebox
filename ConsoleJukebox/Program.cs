@@ -8,7 +8,7 @@ namespace ConsoleJukebox
     {
         static void Main(string[] args)
         {
-            Jukebox mattsJukebox = new Jukebox("matts Jukebox", "123 fak str");
+            Jukebox mattsJukebox = new Jukebox("Matt's Jukebox", "Matt's Tavern");
             mattsJukebox.Setup();
 
             List<Note> tetrisNotes = new List<Note>();
