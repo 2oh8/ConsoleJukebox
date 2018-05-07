@@ -107,12 +107,24 @@ namespace ConsoleJukebox.Models
             foreach (Song song in Songs)
             {
                 Console.WriteLine($"{count++} {song.Name}");
-                PlayList.Add(new MenuOption(song.Play, $"Play {song.Name}"));
                
             }
-            PlayMenu = new Menu(
-             "Play Menu", PlayList
-             );
+            Console.WriteLine("Which song do you want to play?");
+            var input = Console.ReadLine();
+            var selection = -1;
+            Int32.TryParse(input, out selection);
+            int listLength = Songs.ToArray().Length;
+            bool failedParse = selection == -1;
+            bool invalidSelection = selection > listLength;
+            if (!failedParse && !invalidSelection)
+            {
+                Console.WriteLine($"Now playing {Songs[selection - 1].Name}...");
+                Songs[selection - 1].Play();
+            } else
+            {
+                Console.WriteLine("Please select a valid song.");
+            }
+
         }
 
 
