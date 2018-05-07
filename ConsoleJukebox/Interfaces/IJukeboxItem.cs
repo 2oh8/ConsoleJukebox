@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Interfaces
+namespace ConsoleJukebox.Interfaces
 {
-    public interface ILibraryItem
+    public interface IJukeboxItem
     {
-        string Id { get; set; }
         string Name { get; set; }
 
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Models
+namespace ConsoleJukebox.Models
 {
     public class Menu
     {

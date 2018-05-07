@@ -1,11 +1,11 @@
-﻿using ConsoleLibrary.Interfaces;
+﻿using ConsoleJukebox.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Abstracts
+namespace ConsoleJukebox.Abstracts
 {
-    public abstract class CheckoutItem : ICheckOutable
+    public abstract class PlayItem : IPlayable
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace ConsoleLibrary.Abstracts
         public DateTime CheckOutDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
-        public void Checkout()
+        public void Play()
         {
             CheckOutDate = DateTime.Now;
             ReturnDate = DateTime.Now.AddDays(7);
