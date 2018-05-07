@@ -1,14 +1,14 @@
 ﻿using ConsoleJukebox.Abstracts;
 using ConsoleJukebox.Interfaces;
+using System.Collections.Generic;
 using System;
 
 namespace ConsoleJukebox.Models
 {
-    public class Song : PlayItem
+    class Song : PlayItem
     {
-        public Array Notes { get; set; }
-        
-        public Song(string name, Array notes)
+               
+        public Song(string name, List<Note> notes)
         {
             Name = name;
             Notes = notes;

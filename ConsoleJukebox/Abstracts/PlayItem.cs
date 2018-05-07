@@ -1,22 +1,29 @@
 ﻿using ConsoleJukebox.Interfaces;
+using ConsoleJukebox.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Text;
 
 namespace ConsoleJukebox.Abstracts
 {
-    public abstract class PlayItem : IPlayable
+    abstract class PlayItem : IPlayable
     {
-        public string Id { get; set; }
+        public List<Note> Notes { get; set; }
         public string Name { get; set; }
-
-        public DateTime CheckOutDate { get; set; }
-        public DateTime ReturnDate { get; set; }
 
         public void Play()
         {
-            CheckOutDate = DateTime.Now;
-            ReturnDate = DateTime.Now.AddDays(7);
+            foreach (var note in Notes)
+            {
+                if (note.Frequency == 0)
+                {
+                    Thread.Sleep(note.Duration);
+                } else
+                {
+                Console.Beep(note.Frequency, note.Duration);
+                }
+            }
         }
     }
 }

@@ -7,6 +7,6 @@ namespace ConsoleJukebox.Interfaces
     public interface IPlayable : IJukeboxItem
     {
               void Play();
-        //JukeboxMember IssuedTo { get; set; }
+
     }
 }
