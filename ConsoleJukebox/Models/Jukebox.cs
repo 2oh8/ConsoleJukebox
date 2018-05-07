@@ -2,6 +2,7 @@
 using ConsoleJukebox.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Text;
 
 namespace ConsoleJukebox.Models
@@ -17,8 +18,10 @@ namespace ConsoleJukebox.Models
         private List<Song> Songs = new List<Song>();
         private List<IJukeboxItem> Items = new List<IJukeboxItem>();
         private List<IPlayable> ItemsForPlay = new List<IPlayable>();
+        private List<MenuOption> PlayList = new List<MenuOption>();
         private Menu MainMenu { get; set; }
         private Menu SongMenu { get; set; }
+        private Menu PlayMenu { get; set; }
 
         public Jukebox(string name, string address)
         {
@@ -96,11 +99,20 @@ namespace ConsoleJukebox.Models
         {
             Console.Clear();
             int count = 1;
+            PlayList = new List<MenuOption>
+            {
+            };
+                //new MenuOption(LeaveMenu, "Leave the Menu")
+            
             foreach (Song song in Songs)
             {
                 Console.WriteLine($"{count++} {song.Name}");
+                PlayList.Add(new MenuOption(song.Play, $"Play {song.Name}"));
+               
             }
-            Console.ReadLine();
+            PlayMenu = new Menu(
+             "Play Menu", PlayList
+             );
         }
 
 
